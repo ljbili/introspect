@@ -60,6 +60,7 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: farming_aws
         environment_name: Farmingaws-Testenv
-        version_label: "docker-app-${{ date "+%F-%H-%M-%S" }}"
+        #version_label: "docker-app-${{ date "+%F-%H-%M-%S" }}"
+        version_label: "docker-app-test"
         region: eu-west-3
         deployment_package: deploy.zip
