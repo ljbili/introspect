@@ -55,7 +55,11 @@ jobs:
     #    replace-with: '-'
     #    flags: 'g'
     - name: Generate Deployment Package
-      run: zip -r deploy.zip * -x "**node_modules**"
+      #run: zip -r deploy.zip * -x "**node_modules**"
+      run: |
+        sed -i "s/<version>/$IMAGE_TAG/g" ./Dockerrun.aws.json
+        zip deploy.zip Dockerrun.aws.json
+
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v16
       with:

@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "2",
     "Image": {
-      "Name": "752033149434.dkr.ecr.eu-west-3.amazonaws.com/farmingtest:$(git rev-parse --short HEAD)"
+      "Name": "752033149434.dkr.ecr.eu-west-3.amazonaws.com/farmingtest:<version>"
     },
     "Ports": [
       {
