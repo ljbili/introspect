@@ -52,9 +52,7 @@ jobs:
     #    replace-with: '-'
     #    flags: 'g'
     - name: Generate Deployment Package
-      run: | 
-        zip -r deploy.zip * -x "**node_modules**"
-        echo "sha_short=$(git rev-parse --short HEAD)" >> $appver
+      run: zip -r deploy.zip * -x "**node_modules**"
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v16
       with:
@@ -63,6 +61,6 @@ jobs:
         application_name: farming_aws
         environment_name: Farmingaws-Testenv
         #version_label: "docker-app-${{ date "+%F-%H-%M-%S" }}"
-        version_label: "docker-app-$appver"
+        version_label: "docker-app-$(git rev-parse --short HEAD)"
         region: eu-west-3
         deployment_package: deploy.zip
